@@ -7,7 +7,11 @@ import { Providers } from "@/components/providers";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata: Metadata = {
-  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
+  metadataBase: new URL(
+    process.env.NODE_ENV === 'production'
+      ? 'https://shivanshudixit.vercel.app'
+      : 'http://localhost:3000'
+  ),
   title: "Shivanshu Dixit | AI Engineer & Full Stack Developer",
   description: "Portfolio of Shivanshu Dixit — AI Engineer and Full Stack Developer building thoughtful, intelligent products.",
   alternates: { canonical: "/" },
@@ -39,8 +43,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <Providers>{children}</Providers>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
-        <Analytics />
-        <SpeedInsights />
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        )}
       </body>
     </html>
   );

@@ -178,7 +178,7 @@ input {
 .hero-name, 
 .footer-name {
   animation: letter-shine 11s linear infinite;
-  will-change: background-position;
+  will-change: opacity;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -186,10 +186,10 @@ input {
 
 @keyframes letter-shine {
   0%, 20% {
-    background-position: 110% 50%;
+    opacity: 0.75;
   }
   55%, 100% {
-    background-position: -110% 50%;
+    opacity: 1;
   }
 }
 
