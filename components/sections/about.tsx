@@ -21,7 +21,7 @@ export function About() {
           <div className="flex flex-col gap-7 sm:flex-row">
             <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl border border-white/[.12] bg-[#111] sm:h-36 sm:w-36">
               <Image
-                src="/shivanshu-dixit.jpg"
+                src="/shivanshu-dixit.jpeg"
                 alt="Shivanshu Dixit"
                 fill
                 sizes="144px"
